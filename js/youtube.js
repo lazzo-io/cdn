@@ -89,10 +89,12 @@ let app = new Vue({
     };
   },
   created() {
-    axios
-      .get(YOUTUBE_API)
+    fetch(YOUTUBE_API)
+      .then((data) => {
+        return data.json();
+      })
       .then((response) => {
-        return response.data.items.map((video) => {
+        return response.items.map((video) => {
           let video_date = new Date(video.contentDetails.videoPublishedAt);
 
           return {
