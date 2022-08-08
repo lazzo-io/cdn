@@ -94,7 +94,7 @@ let app = new Vue({
         return data.json();
       })
       .then((response) => {
-        return response.data.items.map((video) => {
+        return response.items.map((video) => {
           let video_date = new Date(video.contentDetails.videoPublishedAt);
 
           return {
