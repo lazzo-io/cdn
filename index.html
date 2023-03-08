@@ -1,0 +1,79 @@
+<div id="appVideo" class="slider-wrapper">
+  <div data-delay="4000" data-animation="slide" class="youtube-slider w-slider" data-autoplay="false" data-easing="ease-out" data-hide-arrows="true" data-disable-swipe="false" data-autoplay-limit="0" data-nav-spacing="3" data-duration="600" data-infinite="false">
+    <div class="slider-mask w-slider-mask">
+      <template v-if="!loading">
+        <template v-for="(video, index) in videos">
+          <template v-if="index <= 1">
+            <div :aria-label="`${index + 1} of 9`" role="group" class="youtube-slide w-slide" style="transform: translateX(0px); opacity: 1; transition: transform 0.5s ease 0s, transform 500ms ease 0s">
+              <div class="w-dyn-list">
+                <div role="list" class="w-dyn-items">
+                  <div role="listitem" class="w-dyn-item">
+                    <div class="yt-card w-slide" style="padding-right: 40px">
+                      <a json-href="link.href" :href="video.url" class="yt__video w-inline-block" target="_blank">
+                        <div class="sizer">
+                          <img :src="video.thumbnail" json-src-yt-thumb="videoId" alt="" class="sizer__img" />
+                          <div class="play-icon-2">
+                            <div class="play-icon__svg w-embed">
+                              <svg width="100%" viewBox="0 0 120 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M98.075 0.920613C80.055 -0.30937 39.92 -0.30437 21.925 0.920613C2.44 2.25059 0.145 14.0204 0 45C0.145 75.9246 2.42 87.7444 21.925 89.0794C39.925 90.3044 80.055 90.3094 98.075 89.0794C117.56 87.7494 119.855 75.9796 120 45C119.855 14.0754 117.58 2.25559 98.075 0.920613V0.920613ZM45 64.9997V25.0003L85 44.965L45 64.9997V64.9997Z" fill="currentColor" />
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="yt__info">
+                          <div json-date="published" class="yt__date">{{ video.publishAt }}</div>
+                          <h3 json-text="title" class="yt-card-title">{{ video.title }}</h3>
+                          <p json-trim="150" json-text="group.description" class="yt-card-description">{{ video.description }}</p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </template>
+
+          <template v-if="index > 1">
+            <div :aria-label="`${index + 1} of 9`" role="group" class="youtube-slide w-slide" style="transform: translateX(0px); opacity: 1; transition: transform 0.5s ease 0s, transform 500ms ease 0s" aria-hidden="true">
+              <div class="w-dyn-list" aria-hidden="true">
+                <div role="list" class="w-dyn-items" aria-hidden="true">
+                  <div role="listitem" class="w-dyn-item" aria-hidden="true">
+                    <div class="yt-card w-slide" style="padding-right: 40px">
+                      <a json-href="link.href" :href="video.url" class="yt__video w-inline-block" target="_blank">
+                        <div class="sizer">
+                          <img :src="video.thumbnail" json-src-yt-thumb="videoId" alt="" class="sizer__img" />
+                          <div class="play-icon-2">
+                            <div class="play-icon__svg w-embed">
+                              <svg width="100%" viewBox="0 0 120 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M98.075 0.920613C80.055 -0.30937 39.92 -0.30437 21.925 0.920613C2.44 2.25059 0.145 14.0204 0 45C0.145 75.9246 2.42 87.7444 21.925 89.0794C39.925 90.3044 80.055 90.3094 98.075 89.0794C117.56 87.7494 119.855 75.9796 120 45C119.855 14.0754 117.58 2.25559 98.075 0.920613V0.920613ZM45 64.9997V25.0003L85 44.965L45 64.9997V64.9997Z" fill="currentColor" />
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="yt__info">
+                          <div json-date="published" class="yt__date">{{ video.publishAt }}</div>
+                          <h3 json-text="title" class="yt-card-title">{{ video.title }}</h3>
+                          <p json-trim="150" json-text="group.description" class="yt-card-description">{{ video.description }}</p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </template>
+        </template>
+      </template>
+    </div>
+    <div class="gallery-slider-left-arrow w-slider-arrow-left"></div>
+    <div class="gallery-slider-right-arrow w-slider-arrow-right"></div>
+    <div class="slider-nav w-slider-nav w-round"></div>
+  </div>
+  <div class="hidden-slider-data">
+    <div class="collection-wrapper w-dyn-list">
+      <div class="w-dyn-empty">
+        <div>No items found.</div>
+      </div>
+    </div>
+  </div>
+</div>
